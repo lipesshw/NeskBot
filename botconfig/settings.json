@@ -1,0 +1,40 @@
+{
+    "ownerIDS": ["442355791412854784"],
+    "default_cooldown_in_sec" : 1.5,
+    "antiCrash": true,
+    "ping_message": true,
+    "delete_commands": true,
+    "somethingwentwrong_cmd": true,
+
+    "messages": {
+        "ping_message": "Para ver todos os comandos digite: `%{prefix}%help`",
+        "cooldown": "<:errado:938638337072300103> | Por favor, aguarde %{timeleft}%segs antes de reutilizar o  `%{commandname}%` novamente.",
+        "notallowed_to_exec_cmd": {
+            "title": "<:errado:938638337072300103> | Este comando está disponivel apenas para meu desenvolvedor no momento.",
+            "description": {
+                "memberpermissions": "Você precisa dessas permissões:\n> %{commandmemberpermissions}%",
+                "alloweduserids": "Usuários permitidos:\n> %{commandalloweduserids}%",
+                "requiredroles": "Você precisa ter um dos seguintes cargos:\n> %{commandrequiredroles}%",
+                "default": "Por favor, certifique-se, para obter as permissões necessárias!"
+            }
+        },
+        "somethingwentwrong_cmd": {
+            "title": "<:errado:938638337072300103> | Algo deu errado ao executar o comando: `%{commandname}%`",
+            "description": "```%{errormessage}%```\n\nReporte isso para meu desenvolvedor com uma print do erro."
+        },
+        "unknown_cmd": "❌ Comando desconhecido, tente: **`%{prefix}%help`**",
+        "error_occur": "<:errado:938638337072300103> | Um erro foi encontrado, reporte isso ao meu desenvolvedor.",
+        "error_occur_desc": "````%{errorstack}%````"
+    },
+    "timeout": {
+        "notallowed_to_exec_cmd": {
+            "memberpermissions": 4500,
+            "alloweduserids": 4500,
+            "requiredroles": 4500
+        },
+        "minargs": 5000,
+        "maxargs": 5000,
+        "minplusargs": 5000,
+        "maxplusargs": 5000
+    }
+}

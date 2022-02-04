@@ -1,0 +1,15 @@
+{
+    "website" : {
+      "support": "https://discord.gg/DGcB2h6apQ",
+      "domain": "https://web.neskapp.live"
+    },
+    "config": {
+        "http": {
+          "port": 80
+        },
+        "callback": "https://web.neskapp.live/callback",
+        "clientID": "920706767200088074",
+        "secret": "B7i4XmHU_nx0z1nTFuo15EMSjchmU9xp"
+    }
+  }
+  

@@ -1,0 +1,112 @@
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+<html lang="pt-br">
+  <head>
+  <link rel="icon" type="image/png" style="border-radius: 200px" href="https://cdn.discordapp.com/attachments/926313899551227974/938587555375497276/perfil_bot.png">
+    <meta author="lipeshawty#0707">
+    <meta desc="visão seu cornoKKASKDK, ta olhando oq aq?">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="card.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    
+    <style>
+    
+    .a{
+     box-shadow: 7px 7px 0px 0px #202020;
+    }
+    .button {
+    font-family: Helvetica; 
+    background: #202020;
+    }
+    
+.button:hover {
+  background: rgba(0,0,0,.1);
+    color: #99e6ff;
+}
+    </style>
+
+      <script type="text/javascript">
+         function startmenu()
+         {
+            af.style.display = "none";
+          }
+          
+         function abrefecha()         
+         {
+            if(af.style.display == "none")
+            {
+               af.style.display = "block";
+            }
+            else
+            {
+               startmenu();
+            } 
+         }
+      </script>
+  </head>
+  
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="https://web.neskapp.live" id="navbar__logo">Nesk Music</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <% if(user && user.id) { %>
+          <li class="navbar__item">
+            <a onclick="location.href='/comandos'" class="navbar__links" style="cursor: pointer" class="navbar__links">Comandos</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/fila'" class="navbar__links" style="cursor: pointer">Fila</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/dashboard'" class="navbar__links" style="cursor: pointer">Dashboard </a>
+          </li>
+
+          <li class="navbar__item">
+
+            <button class="button a" style="background: #23272a;" onclick="javaScript:abrefecha()">
+            <a class="navbar__links">&nbsp;
+            <img  src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>" style="text-align: center;border-radius:200px;width: 30px;margin-bottom: 0%;cursor: pointer" >&nbsp;&nbsp;<%= user.username %></a></button>
+
+            <div id="af" class="navbar__item" style="text-align: center;display: none;width: 160px;height: 50px;padding-top:-10px">
+            <a onclick="location.href='/perfil'" class="button" style="font-size: 14px; border-radius:0px;">Perfil</a>
+            <a onclick="location.href='/logout'" class="button" style="font-size: 14px;border-radius:0px">Desconectar</a>
+          </li>
+       
+       <% }else { %>
+          <li>
+            <a onclick="location.href='/sobre'"  class="navbar__links" style="cursor: pointer">Sobre</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/comandos'" class="navbar__links" style="cursor: pointer">Comandos</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/fila'" class="navbar__links" style="cursor: pointer">Fila</a>
+          </li>
+          <li class="navbar__btn">
+            <a onclick="location.href='/login'" class="button" id="signup">Conectar via discord</a></i>
+            <% }%>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script src="app.js"></script>
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let myParam = urlParams.get('error');
+    if(myParam) alert(myParam);
+    myParam = urlParams.get('success');
+    if(myParam) alert(myParam);
+
+</script>

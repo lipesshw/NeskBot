@@ -1,0 +1,75 @@
+<%- include('header'); -%>
+
+<html lang="pt-br">
+    <head>
+        <!--Meta Tags-->
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/style.css">
+        
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap" rel="stylesheet">
+           
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/card.css">
+        <title>NeskMusic - Fila de músicas</title>    
+    </head>
+    <body>
+        <!--HEADER-->
+        
+        <!--MAIN BODY-->
+      <section>
+        <% if(user && user.guilds && user.guilds.filter((guild) => botClient.guilds.cache.get(guild.id)).length > 0){ %>
+          <div class="d-flex justify-content-center head" style="padding-top: 50px">
+              <h1 style="font-family: 'impact';font-size: 50px;">Servidores em que nós dois estamos</h1>
+          </div>
+          <div class="d-flex justify-content-center">
+            <p style="font-family: 'system-ui';font-size:17px;text-align: center">Esses Servidores são ordenados, o servidor com a maior fila fica à esquerda!</p>
+            
+            <p style="font-family: 'system-ui';font-size:17px;text-align: center"><B style="color: red">OBS:</B> às filas de músicas não podem ser visualizadas por um celular.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <%
+              user.guilds
+              .filter((guild) => botClient.guilds.cache.get(guild.id))
+              .sort((a, b) => {
+                let x = botClient.distube.getQueue(a.id) ? botClient.distube.getQueue(a.id).songs.length : 0
+                let y = botClient.distube.getQueue(a.id) ? botClient.distube.getQueue(a.id).songs.length : 0
+                return y  - x || -1
+              })
+              .forEach(guild => {
+              %>
+                <div class="card blue">
+                <%- guild.icon? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}"
+                class="card-img-top" style="text-align: center;max-width: 150px;width: 150px; border-radius: 200px">` : `<img src="https://cdn.discordapp.com/attachments/918315262300815380/933880447103033414/1f0bfc0865d324c2587920a7d80c609b.png"
+                class="card-img-top" style="text-align: center;max-width: 150px;width: 150px;border-radius: 200px">` %>
+                  <div>
+                    <h5 style="text-align: center;font-size: 17px;"><br><%= guild.name %></h5><br>
+                      <p class="" style="font-size: 15px;color: #fff"><b><%= botClient.distube.getQueue(guild.id) ? botClient.distube.getQueue(guild.id).songs.length : 0 %></b> música(s) na fila!</p>
+                      <br><br>
+                      <a style="font-size: 20px;"
+                        onclick="location.href='<%- bot.domain %>/queue/<%- guild.id %>'" 
+                        class="bn5">Ver fila</a>
+     
+                  </div>
+                </div>
+              <% });
+              %>
+          </div>
+          <% }else {
+          %>
+        <div class="d-flex justify-content-center head"><h1><b>We do not share any Servers ;(</b></h1>
+          <p>
+            <button style="font-size: 50px;"
+            onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=<%= botClient.user.id %>&permissions=8&scope=bot%20applications.commands', '_blank')"
+            class="btn btn-success" type="button"><i class="iconify" data-icon="carbon:add-filled"></i>
+            Invite me!</button>
+          </p>
+        </div> 
+        <%
+        }  %>
+      </section>
+      
+
+       <!--JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </body>
+</html>

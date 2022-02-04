@@ -1,0 +1,92 @@
+<%- include('header'); -%>
+<html lang="pt-br">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">  
+        
+        <title>Nesk Music - Um bot de músicas para o seu discord!</title>
+        <link rel="stylesheet" href="styles.css" />
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+        <script type="text/javascript">
+          function startmenu()
+         {
+            af.style.display = "none";
+          }
+          
+         function abrefecha()         
+         {
+            if(af.style.display == "none")
+            {
+               af.style.display = "block";
+            }
+            else
+            {
+               startmenu();
+            } 
+         }
+      </script>
+    </head>
+    <body>
+     <div class="hero" id="inicio">
+      <div class="hero__container" style="padding-top: 0px">
+        <h4 class="hero__heading" style="font-size: 30px; padding-top: 0px">Reproduza música de alta qualidade no seu servidor gratuitamente.</h4>
+        <p class="hero__description" style="font-size: 17px;">Tocando para mais de <b><%= botClient.guilds.cache.size %></b> servidores</p>
+        <button class="main__btn"><a onclick="location.href='https://discord.com/oauth2/authorize?client_id=920706767200088074&scope=bot+identify+guilds+email&permissions=2080374975&response_type=code&redirect_uri=https://web.neskapp.live/callback'">+ Me adicione</a></button>
+      </div>
+    </div>
+
+    <div class="main" id="comandos">
+      <div class="main__container">
+        <div class="main__content">
+          <h3 style="font-size: 36px;">Acessar lista de comandos</h3>
+          <p style="font-size: 15px;">Caso tenha alguma dúvida basta acessar nosso servidor de suporte --></p>
+          <button class="main__btn"><a onclick="location.href='/comandos'">Lista de comandos</a></button>
+        </div>
+        <div class="main__img--container" style="background: transparent">
+          <div class="main__img--card" style="background: transparent" id="card-2">
+            <i class="fas fa-discord"><iframe src="https://discord.com/widget?id=898933870685212695&theme=dark" width="400" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+    
+      <section class="social__media">
+        <div class="social__media--wrap">
+          <div class="footer__logo">
+            <a href="/" id="footer__logo">NeskMusic</a>
+          </div>
+          <p class="website__rights">© NeskApp 2020. Todos os direitos reservados.</p>
+          <div class="social__icons">
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-discord"></i
+            ></a>
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let myParam = urlParams.get('error');
+    if(myParam) alert(myParam);
+    myParam = urlParams.get('success');
+    if(myParam) alert(myParam);
+
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+</script>

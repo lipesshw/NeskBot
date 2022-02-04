@@ -1,0 +1,16 @@
+
+/*<i class="fab fa-discord" onclick="location.href='https://discordapp.com/users/<%=user.id%>'" */
+.profile-head {
+    transform: translateY(5rem)
+}
+
+.cover {
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+body {
+    background: #23272A;
+    min-height: 100vh;
+    overflow-x: hidden
+}

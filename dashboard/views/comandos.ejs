@@ -1,0 +1,174 @@
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+<html lang="pt-br">
+  <head>
+  <link rel="icon" type="image/png" style="border-radius: 200px" href="<%= botClient.user.displayAvatarURL({size: 128}) %>" style="border-radius: 200px">
+    <meta author="lipeshawty#0707">
+    <meta desc="visão seu cornoKKASKDK, ta olhando oq aq?">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeskMusic - Comandos</title>
+    <link main rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    
+    <style>
+    
+    .a{
+     box-shadow: 7px 7px 0px 0px #202020;
+    }
+    .button {
+    font-family: Helvetica; 
+    background: #202020;
+    }
+    
+.button:hover {
+  background: rgba(0,0,0,.1);
+    color: #99e6ff;
+}
+    </style>
+      <script type="text/javascript">
+         function startmenu()
+         {
+            af.style.display = "none";
+          }
+          
+         function abrefecha()         
+         {
+            if(af.style.display == "none")
+            {
+               af.style.display = "block";
+            }
+            else
+            {
+               startmenu();
+            } 
+         }
+      </script>
+  </head>
+  
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="https://web.neskapp.live" id="navbar__logo">Nesk Music</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <% if(user && user.id) { %>
+          <li class="navbar__item">
+            <a onclick="location.href='/comandos'" class="navbar__links" style="cursor: pointer" class="navbar__links">Comandos</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/fila'" class="navbar__links" style="cursor: pointer">Fila</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/dashboard'" class="navbar__links" style="cursor: pointer">Dashboard </a>
+          </li>
+
+          <li class="navbar__item">
+
+            <button class="button a" style="background: #23272a;" onclick="javaScript:abrefecha()">
+            <a class="navbar__links">&nbsp;
+            <img  src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>" style="text-align: center;border-radius:200px;width: 30px;margin-bottom: 0%;cursor: pointer" >&nbsp;&nbsp;<%= user.username %></a></button>
+
+            <div id="af" class="navbar__item" style="text-align: center;display: none;width: 160px;height: 50px;padding-top:-10px">
+            <a onclick="location.href='/perfil'" class="button" style="font-size: 14px; border-radius:0px;">Perfil</a>
+            <a onclick="location.href='/logout'" class="button" style="font-size: 14px;border-radius:0px">Desconectar</a>
+          </li>
+       
+       <% }else { %>
+       
+            <a onclick="location.href='/sobre'"  class="navbar__links" style="cursor: pointer">Sobre</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/comandos'" class="navbar__links" style="cursor: pointer">Comandos</a>
+          </li>
+          <li class="navbar__item">
+            <a onclick="location.href='/fila'" class="navbar__links" style="cursor: pointer">Fila</a>
+          </li>
+          <li class="navbar__btn">
+            <a onclick="location.href='/login'" class="button" id="signup">Conectar via discord</a></i>
+            <% }%>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </head>
+
+    <body style="background: #131313">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+      <div class="d-flex justify-content-center command_head">
+      </div>
+      <section id="botcommands" class="botcommands">
+        <h1 style="text-align: center;color: #fff; font-family: 'impact';font-size: 60px;">Comandos da aplicação</h1><br><br>
+      
+        <!-- Command Menu -->
+
+        <div class="container px-lg-5" id="commands_menu">
+          <div class="row">
+            <div class="col-sm-3" style="color: #fff" id="category">
+              <div class="list-group" id="myList" role="tablist">
+                <% categories.forEach((category, i) => { %>
+                  <a class="list-group-item list-group-item-action <%= i==0 ? 'active' : '' %>"  data-bs-toggle="list" style="color: #fff;background: rgb(15 15 15)" href="#<%= category %>" role="tab" aria-controls="<%= category %>"><%= category %></a>
+                <% }) %><br>
+              </div>
+            </div>
+          <div class="col-sm-9">
+            <div class="tab-content">
+              <% categories.forEach((category, k) => { %>
+                  <div class="tab-pane fade show <%= k == 0 ? 'active' : '' %>" id="<%= category %>" role="tabpanel" aria-labelledby="list-home-list"  style="color: #fff">
+                    <div class="accordion" id="acc_<%= category %>">
+                      <% commands.filter((cmd) => cmd.category === category).forEach((cmd, i) => { %>
+                    
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="h_<%= cmd.name %>">
+                            <button class="accordion-button <%= i==0 ? '' : 'collapsed' %>" 
+                              type="button" 
+                              data-bs-toggle="collapse" 
+                              data-bs-target="#c_<%= cmd.name %>" 
+                              aria-expanded="<%= i==0 ? 'true' : 'false' %>"
+                              aria-controls="<%= cmd.name %>"  style="color: #fff;background: rgb(15 15 15)">
+                              -<%= cmd.name %>
+                    
+                            </button>
+                          </h2>
+                          <div id="c_<%= cmd.name %>" 
+                            class="accordion-collapse collapse <%= i==0 ? 'show' : ''%>" 
+                            aria-labelledby="h_<%= cmd.name %>" 
+                            data-bs-parent="#acc_<%= category %>" style="color: #fff">
+                            <div class="accordion-body" style="color: #fff">
+                            <code style="color: #fff">Descrição: </code><%= cmd.description %> <br>
+                            <code style="color: #fff">Modos: </code style="color: #fff"><% cmd.aliases && cmd.aliases.length > 0 ? cmd.aliases.forEach(a => { %>
+                            <small class="text-muted">[+<%= a %>]</small>
+                            <% }) : "NO" %><br>
+                            <code style="color: #fff">Como usar: </code><small><kbd><%= cmd.usage %></kbd></small><br>
+                            </div>
+                          </div>
+                        </div>
+                      <% }) %>
+                    </div>
+                  </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+        </div><br><br><br><br><br>
+      </section>
+
+      
+      </section>
+    <script src="app.js"></script>
+
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let myParam = urlParams.get('error');
+    if(myParam) alert(myParam);
+    myParam = urlParams.get('success');
+    if(myParam) alert(myParam);
+
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+</script>

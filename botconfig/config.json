@@ -1,0 +1,12 @@
+{
+  "token": "OTIwNzA2NzY3MjAwMDg4MDc0.YboQ_w.Mwi8QZhxqwUmpYU684aTZiVY24A",
+  "prefix": "-",
+  "ksoftapi": "NEEDED_FOR_LYRICS",
+  "youtubeCookie": "AIzaSyBXlWDmX74-myH9izgHYAKHNSx5Kq06ZtE",
+  "spotify_api": {
+        "enabled": true,
+        "clientSecret": "b4f826a273af4aad85508590353c328b",
+        "clientId": "fad946ce33ca4472ac6d01fec4994f4d"
+  },
+  "loadSlashsGlobal": false
+}

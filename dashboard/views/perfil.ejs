@@ -1,0 +1,77 @@
+<%- include('header'); -%>
+<html lang="pt-br">
+
+    <title>Nesk Music - Painel de controle</title>
+
+     <link rel="stylesheet" href="/style.css">
+        
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
+     <link rel="stylesheet" href="/perfil.css">
+     <link rel="stylesheet" href="/card.css">
+
+    <style>
+    
+    .img-thumbnail {
+    border-radius: 200px;
+    border-color: #4593ff;
+    background: #4593ff;
+    }
+    .navbar__item {
+    color:#fff
+    }
+    
+    .navbar__item:hover{
+  color: #5fb1e0;
+  transition: all 0.3s ease;
+    }
+
+
+    
+    .cover{
+      background-image: url(https://cdn.discordapp.com/banners/<%=user.id%>/<%=user.banner%>?size=1024);
+    }
+    </style>
+
+</head>
+
+    
+<body>  
+<div class="row py-5 px-4"  style="background: #131313;">
+    <div class="col-md-5 mx-auto" >
+        <!-- Profile widget -->
+        <div class="bg- shadow rounded overflow-hidden blue" style="border-radius:20px;background: #23272A; color: #fff; box-shadow: 7px 7px 0px 0px #202020;" >
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>" alt="..." width="130" class="rounded mb-2 img-thumbnail" ></div>
+                    <div class="media-body mb-5 text-white" >
+                        <h4 class="mt-0 mb-0"><br><%=user.username%>#<%=user.discriminator%></h4>
+                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i><%=user.locale%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg- p-4 d-flex justify-content-end text-center">
+            <ul>
+            <!--class="fab fa-discord"-->
+                    <li class="list-inline-item">
+                        <p style="font-size: 15px;color:#4593ff"</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="px-4 py-3"><b></b>
+                <h5 class="mb-0">Sobre você</h5>
+                <div class="p-4 rounded shadow-sm bg-" >
+                    <p style="text-align: left;line-height:2px" class="fab fa-discord"><b> Link do seu perfil:</b> <a class="text-muted" style=" border-radius:3px;" href="https://discordapp.com/users/<%=user.id%>" target="_blank"> Clique aqui </a></p>
+                    <p style="text-align: left;line-height:2px"><b>Seu ID:</b> <a class="text-muted" style=" border-radius:3px;"> <%=user.id%> </a></p>
+                    <p style="text-align: left;line-height:2px"><b>Email:</b> <a class="text-muted" style=" border-radius:3px;"> <%=user.email%> </a></p>
+                    <p style="text-align: left;line-height:2px"><b>Linguagem:</b> <a class="text-muted" style="; border-radius:3px;"> <%=user.locale%> </a></p>
+                </div>
+            </div>
+            
+</body>
+       <!--JS-->
+    <script src="app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+<%- include('header'); -%>
+<html lang="pt-br">
+
+    <title>Nesk Music - Painel de controle</title>
+
+        <link rel="stylesheet" href="/style.css">
+        
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap" rel="stylesheet">
+           
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/card.css">
+
+<script type="text/javascript">
+// Popup window code
+function newPopup(url) {
+	var popupWindow = window.open(
+  
+  url,'popUpWindow','text-align=center, width=1280, height=720, resizable=yes,menubar=no,location=no,directories=yes,status=yes' )
+  
+window.opener.location.href="/{!$CurrentPage.parameters.yourAccountIdParamName}";
+window.top.close();
+    
+}
+
+</script>
+    </head>
+    <body>
+    
+    
+      <section>
+        <div class="d-flex justify-content-center head" style="padding-top: 50px">
+            <h1 style="font-family: 'impact';font-size: 60px;">Painel de controle</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+            <p style="font-family: 'system-ui';font-size:17px;text-align: center">Com o painel de controle você pode gerenciar as configurações de cada servidor individualmente!<br>Os servidores que que você é <b>dono/admin</b> ficará aqui em baixo ↓</p>
+            
+            <p style="font-family: 'system-ui';font-size:17px;text-align: center"><B style="color: red">OBS:</B> A página à seguir só pode ser acessada por um computador.</p>
+        </div>
+        <% if(user && user.id){ %>
+
+
+          <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+              <% user.guilds
+              .filter((guild) => {
+                const permsOnGuild = new Permissions(guild.permissions_new);
+                if(permsOnGuild.has(Permissions.FLAGS.MANAGE_GUILD)) return guild;
+              })
+              .sort((a, b) => {
+                return (botClient.guilds.cache.get(a.id) === botClient.guilds.cache.get(b.id)) ? 0 : a ? -1 : 1;
+              })
+              .forEach(guild => {
+              %>
+                <div class="card blue">
+                <%- guild.icon? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}"
+                class="card-img-top" style="text-align: center;max-width: 150px;width: 150px; border-radius: 200px">` : `<img src="https://cdn.discordapp.com/attachments/918315262300815380/933880447103033414/1f0bfc0865d324c2587920a7d80c609b.png"
+                class="card-img-top" style="text-align: center;max-width: 150px;width: 150px;border-radius: 200px">` %>
+                  <div>
+                    <h5 style="font-size: 17px;"><br><%= guild.name %></h5>
+                    <% if (botClient.guilds.cache.get(guild.id)) { %>
+                      <br><br><a style="font-size: 20px;"
+                      onclick="href='<%- bot.domain %>/dashboard/<%- guild.id %>'" 
+                      class="bn5">Configurar</a>
+                    <% } else { %>
+                      <br><br><a style="font-size: 20px;"
+                      onclick="location.href='<%= `https://discordapp.com/oauth2/authorize?client_id=${botClient.user.id}&scope=bot+identify+guilds+email&permissions=2080374975&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${callback}`)}` %>'"
+                      class="bn4">Adicionar</a>
+                    <% } %>
+                  </div>
+                </div>
+              <%
+                  });
+              %>
+          </div>
+        <%
+          } else {
+        %>
+            <p>Você precisa logar antes de executar esta ação!</p>
+        <%
+          } 
+        %>
+
+        <br><br>
+      </section>
+
+       <!--JS-->
+    <script src="app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </body>
+</html>
